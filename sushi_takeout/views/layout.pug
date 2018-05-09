@@ -1,0 +1,34 @@
+include /_mixins
+
+doctype html
+html
+  head
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN' crossorigin='anonymous')
+    +stylesheet_link_tag('main')
+  body
+    header  
+      a.logo(href='/')
+        img(src='images/logo.png' alt='logo')
+      .cart
+        a(href='/')
+          span.left= 'Shopping Cart'
+          span.right
+            span.count 1
+            = ' items'
+    main
+      #cart
+        ul
+          li(data-id='1')
+            figure
+              img(src='images/sashimi-salad.jpg' alt='cart-item')
+            p= '2 x $12.00'
+        section
+          h3= 'Your'
+          h3= 'shopping cart'
+          p.total= '$24.00'
+          p
+          footer
+            a.left.empty_cart(href='#')= 'Empty cart'
+            a.right.checkout(href='/checkout')= 'Checkout'
+      block content
+    footer
