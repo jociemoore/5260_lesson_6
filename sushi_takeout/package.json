@@ -15,7 +15,8 @@
     "nib": "^1.1.2",
     "path": "^0.12.7",
     "pug": "^2.0.3",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "underscore": "^1.9.0"
   },
   "devDependencies": {
     "grunt": "^1.0.2",

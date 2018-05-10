@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  #content
+    #checkout
+      .img_top
+      section
+        h1= 'Order Details'
+        table
+          thead
+            tr
+              th= 'Item'
+              th= ''
+              th= 'Quantity'
+              th= 'Price'
+          tbody
+            tr(data-id="1")
+              td
+                img(src="images/sashimi-salad.jpg" alt="cart-item")
+              td= 'Sashimi salad'
+              td
+                span.quantity_modifier
+                  i.fa.fa-minus(aria-hidden="true")
+                p= '1'
+                span.quantity_modifier
+                  i.fa.fa-plus(aria-hidden="true")
+              td= '$12.00'
+        p= 'Total:' 
+          span.total= '$12.00'
+        footer
+          a(href="/")= 'Cancel order'
+          form(action="/" method="post")
+            input(type="submit" value="ORDER NOW!")
+
+      div.img_bottom

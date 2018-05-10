@@ -344,7 +344,7 @@ main ul li {
 }
 #item_details > div aside table tr td + td {
   text-align: right;
-  color: #fff;
+  color: #000;
 }
 #checkout > div {
   background: url("../images/sushi-preview.png");
@@ -430,7 +430,7 @@ main ul li {
 }
 #checkout > section footer form input {
   border: none;
-  color: #000;
+  color: #fff;
   position: relative;
   padding: 7px 15px 7px 10px;
   background: linear-gradient(to bottom, #d60041 0%, #a90040 100%);

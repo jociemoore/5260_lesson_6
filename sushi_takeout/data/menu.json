@@ -11,7 +11,7 @@
         "fat": 2.4396,
         "carbs": 3.8071,
         "energyKj": 17.5775,
-        "EnergyKcal": 4.2011,
+        "energyKcal": 4.2011,
         "sugar": 0.3738 
       }
     }, 
@@ -26,7 +26,7 @@
         "fat": 0.6041,
         "carbs": 7.8006,
         "energyKj": 7.5314,
-        "EnergyKcal": 1.8000,
+        "energyKcal": 1.8000,
         "sugar": 0.3114 
       }
     }, 
@@ -41,7 +41,7 @@
         "fat": 2.2852,
         "carbs": 4.8824,
         "energyKj": 5.1003,
-        "EnergyKcal": 1.2190,
+        "energyKcal": 1.2190,
         "sugar": 0.0037
       }
     }, 
@@ -56,7 +56,7 @@
         "fat": 1.9771,
         "carbs": 0.674,
         "energyKj": 17.294,
-        "EnergyKcal": 4.1334,
+        "energyKcal": 4.1334,
         "sugar": 0.1028
       }
     }, 
@@ -71,7 +71,7 @@
         "fat": 2.1552,
         "carbs": 9.5294,
         "energyKj": 9.393,
-        "EnergyKcal": 2.2450,
+        "energyKcal": 2.2450,
         "sugar": 0.1399
       }
     }, 
@@ -86,7 +86,7 @@
         "fat": 0.7329,
         "carbs": 0.0618,
         "energyKj": 28.2176,
-        "EnergyKcal": 6.7442,
+        "energyKcal": 6.7442,
         "sugar": 0.4018
       }
     }, 
@@ -101,7 +101,7 @@
         "fat": 1.4739,
         "carbs": 0.2237,
         "energyKj": 16.9406,
-        "EnergyKcal": 4.0489,
+        "energyKcal": 4.0489,
         "sugar": 0.245
       }
     }, 
@@ -116,7 +116,7 @@
         "fat": 1.3963,
         "carbs": 1.5973,
         "energyKj": 16.4487,
-        "EnergyKcal": 3.9313,
+        "energyKcal": 3.9313,
         "sugar": 0.0509
       }
     }, 
@@ -131,7 +131,7 @@
         "fat": 1.6395,
         "carbs": 7.4319,
         "energyKj": 9.7847,
-        "EnergyKcal": 2.3386,
+        "energyKcal": 2.3386,
         "sugar": 0.4771 
       }
     }, 
@@ -146,7 +146,7 @@
         "fat": 2.858,
         "carbs": 1.6309,
         "energyKj": 23.8901,
-        "EnergyKcal": 5.7099,
+        "energyKcal": 5.7099,
         "sugar": 0.4839
       }
     }, 
@@ -161,7 +161,7 @@
         "fat": 0.1205,
         "carbs": 3.6646,
         "energyKj": 18.6541,
-        "EnergyKcal": 4.4584,
+        "energyKcal": 4.4584,
         "sugar": 0.0174
       }
     }, 
@@ -176,7 +176,7 @@
         "fat": 2.309,
         "carbs": 9.5136,
         "energyKj": 18.6961,
-        "EnergyKcal": 4.4685,
+        "energyKcal": 4.4685,
         "sugar": 0.2533
       }
     }, 
@@ -191,7 +191,7 @@
         "fat": 1.5621,
         "carbs": 2.6322,
         "energyKj": 25.0911,
-        "EnergyKcal": 5.9969,
+        "energyKcal": 5.9969,
         "sugar": 0.0474
       }
     }, 
@@ -206,7 +206,7 @@
         "fat": 2.854,
         "carbs": 2.433,
         "energyKj": 19.2756,
-        "EnergyKcal": 4.6070,
+        "energyKcal": 4.6070,
         "sugar": 0.439
       }
     }, 
@@ -221,7 +221,7 @@
         "fat": 2.6376,
         "carbs": 7.4605,
         "energyKj": 18.7052,
-        "EnergyKcal": 4.4707,
+        "energyKcal": 4.4707,
         "sugar": 0.4271
       }
     }, 
@@ -236,7 +236,7 @@
         "fat": 0.0234,
         "carbs": 6.5532,
         "energyKj": 22.7136,
-        "EnergyKcal": 5.4287,
+        "energyKcal": 5.4287,
         "sugar": 0.1158
       }
     }, 
@@ -251,7 +251,7 @@
         "fat": 2.672,
         "carbs": 9.7993,
         "energyKj": 25.1129,
-        "EnergyKcal": 6.0021,
+        "energyKcal": 6.0021,
         "sugar": 0.3426
       }
     }, 
@@ -266,7 +266,7 @@
         "fat": 2.2143,
         "carbs": 6.1597,
         "energyKj": 17.8688,
-        "EnergyKcal": 4.2708,
+        "energyKcal": 4.2708,
         "sugar": 0.0161
       }
     }, 
@@ -281,7 +281,7 @@
         "fat": 0.2534,
         "carbs": 6.9919,
         "energyKj": 7.508,
-        "EnergyKcal": 1.7945,
+        "energyKcal": 1.7945,
         "sugar": 0.1798
       }
     }]

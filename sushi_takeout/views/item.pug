@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  #item_details
+    div
+      .nav.prev
+        img(src="images/nav-prev.png" alt="prev")
+      figure
+        img(src=item.image alt="selected-item")
+      article
+        a.close(href="/")= '+'
+        h1= item.title
+        p= item.description
+        footer
+          h2= '$' + item.price
+          a.add_cart(href="#")= 'Add to cart'
+      aside
+        h3= 'Nutritional Information'
+        table
+          tbody
+            tr
+              td= 'Protein'
+              td= item.nutrition.protein
+            tr
+              td= 'Fat (total)'
+              td= item.nutrition.fat
+            tr
+              td= 'Carbohydrate'
+              td= item.nutrition.carbs
+            tr
+              td= 'Energy (kj)'
+              td= item.nutrition.energyKj
+            tr
+              td= 'Energy (kcal)'
+              td= item.nutrition.energyKcal
+            tr
+              td= 'Sugar'
+              td= item.nutrition.sugar
+      .nav.next
+        img(src="images/nav-next.png" alt="next")
