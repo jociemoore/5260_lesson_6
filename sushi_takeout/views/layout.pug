@@ -5,6 +5,8 @@ html
   head
     link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN' crossorigin='anonymous')
     +stylesheet_link_tag('main')
+    +javascript_include_tag('vendor/all.min')
+    +javascript_include_tag('handlebars_templates')
   body
     header  
       a.logo(href='/')
@@ -30,6 +32,15 @@ html
           footer
             a.left.empty_cart(href='#')= 'Empty cart'
             a.right.checkout(href='/checkout')= 'Checkout'
+      #content
+        block content
 
-      block content
     footer
+    +javascript_include_tag('application')
+    +javascript_include_tag('models/item')
+    +javascript_include_tag('collections/menu')
+    +javascript_include_tag('views/item', 'views/index', 'views/itemDetails')
+    script(type='text/javascript').
+      App.menu = new Menu(!{JSON.stringify(menu)});
+      App.init();
+    block scripts

@@ -25,7 +25,7 @@ module.exports = function(grunt) {
           processName: extractFilename
         },
         files: {
-          'public/javascripts/vendor/all.min.js': ['handlebars/**/*.hbs']
+          'public/javascripts/handlebars_templates.js': ['handlebars/**/*.hbs']
         }
       }
     }
@@ -43,10 +43,10 @@ module.exports = function(grunt) {
 };
 
 function removeWhitespace(template) {
-  return templace.replace(/ {2,}/mg, '').replace(/(\r|\n)/mg, '');
+  return template.replace(/ {2,}/mg, '').replace(/(\r|\n)/mg, '');
 }
 
 function extractFilename(file) {
-  return template.match(/\/(.*).hbs$/).pop();
+  return file.match(/\/(.*).hbs$/).pop();
 }
 

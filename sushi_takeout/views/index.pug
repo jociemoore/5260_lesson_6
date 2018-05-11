@@ -1,15 +1,5 @@
 extends layout
 
 block content
-  #content
-    ul#items
-      each item in menu
-        li(data-id=item.id)
-          article
-            header
-              figure
-                img(src=item.image alt='menu-item')
-              h2.name= item.title
-            p.price= '$' + item.price
-            footer
-              a.add_cart(href='#')= 'Add to cart'
+
+block scripts
