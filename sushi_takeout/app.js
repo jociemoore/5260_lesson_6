@@ -23,9 +23,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/menu', express.static(path.join(__dirname, 'public')));
 app.use('/checkout', express.static(path.join(__dirname, 'public')));
-
+app.use('/menu', express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.locals.basedir = path.join(__dirname, 'views');
 

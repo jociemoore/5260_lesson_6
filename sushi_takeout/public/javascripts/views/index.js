@@ -10,7 +10,7 @@ var IndexView = Backbone.View.extend({
     e.preventDefault();
     var $elem = $(e.target).closest('li');
     var id = $elem.attr('data-id');
-    this.trigger('get_item_details', [id]);
+    this.trigger('get_item_details', id);
   },
   render: function() {
     App.$el.html(this.$el);

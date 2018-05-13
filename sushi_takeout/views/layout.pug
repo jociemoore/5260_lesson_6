@@ -8,39 +8,16 @@ html
     +javascript_include_tag('vendor/all.min')
     +javascript_include_tag('handlebars_templates')
   body
-    header  
-      a.logo(href='/')
-        img(src='images/logo.png' alt='logo')
-      .cart
-        a(href='/')
-          span.left= 'Shopping Cart'
-          span.right
-            span.count 1
-            = ' items'
     main
-      #cart
-        ul
-          li(data-id='1')
-            figure
-              img(src='images/sashimi-salad.jpg' alt='cart-item')
-            p= '2 x $12.00'
-        section
-          h3= 'Your'
-          h3= 'shopping cart'
-          p.total= '$24.00'
-          p
-          footer
-            a.left.empty_cart(href='#')= 'Empty cart'
-            a.right.checkout(href='/checkout')= 'Checkout'
       #content
         block content
 
     footer
     +javascript_include_tag('application')
     +javascript_include_tag('models/item')
-    +javascript_include_tag('collections/menu')
-    +javascript_include_tag('views/item', 'views/index', 'views/itemDetails')
+    +javascript_include_tag('collections/menu', 'collections/cart')
+    +javascript_include_tag('views/item', 'views/index', 'views/itemDetails', 'views/cart', 'views/header', 'views/checkout')
     script(type='text/javascript').
       App.menu = new Menu(!{JSON.stringify(menu)});
-      App.init();
+    +javascript_include_tag('router')
     block scripts
