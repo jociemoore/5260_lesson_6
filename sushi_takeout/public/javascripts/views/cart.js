@@ -2,11 +2,16 @@ var CartView = Backbone.View.extend({
   el: '#cart',
   template: App.templates.cart,
   events: {
-    'click .checkout': 'goToCheckout'
+    'click .checkout': 'goToCheckout',
+    'click .empty_cart': 'emptyCart'
   },
   goToCheckout: function(e) {
     e.preventDefault();
     this.trigger('go_to_checkout');
+  },
+  emptyCart: function(e) {
+    e.preventDefault();
+    this.trigger('empty_cart');
   },
   render: function() {
     this.$el.html(this.template({

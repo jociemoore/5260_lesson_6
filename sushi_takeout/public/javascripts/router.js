@@ -17,11 +17,9 @@ Backbone.history.start({
 
 $(document).on('click', "a", function(e) {
   e.preventDefault();
-  var route;
+  var route = '/menu/';
 
-  if ($(e.currentTarget).attr('href').match(/^\/$/)) {
-    route = '/menu/';
-  } else if ($(e.currentTarget).attr('href').match(/^\/.+/)) {
+  if ($(e.currentTarget).attr('href').match(/^\/.+/)) {
     route = $(e.currentTarget).attr('href').replace('/', '').concat('/');
   }
 

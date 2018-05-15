@@ -3,6 +3,7 @@ var HeaderView = Backbone.View.extend({
   template: App.templates.header,
   events: {
     'click .logo' : 'renderHomepage',
+    'click .cart' : 'renderHomepage',
   },
   renderHomepage: function(e) {
     e.preventDefault();

@@ -29,7 +29,7 @@ var App = {
   },
   getItemDetails: function(id) {
     var id = Number(id) - 1;
-    var item = this.menu.toJSON()[id];
+    var item = this.menu.get(id);
     new ItemDetailsView({
       model: item,
     });
@@ -39,11 +39,17 @@ var App = {
       collection: this.cart,
     });
   },
+  emptyCart: function() {
+    this.cart.reset();
+    this.indexView();
+  },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
     this.listenTo(this.index, 'get_item_details', this.getItemDetails);
     this.listenTo(this.cart.view, 'go_to_checkout', this.goToCheckout);
+    this.listenTo(this.cart.view, 'empty_cart', this.emptyCart);
     this.listenTo(this.header, 'go_to_homepage', this.indexView);
+    this.on('go_to_homepage', this.emptyCart);
     this.on('add_to_cart', this.cart.addItem.bind(this.cart));
     this.on('remove_from_cart', this.cart.removeItem.bind(this.cart));
   },
