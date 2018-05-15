@@ -10,7 +10,7 @@ var App = {
     });
   },
   renderHeader: function() {
-    new HeaderView({
+    this.header = new HeaderView({
       collection: this.cart,
     });
   },
@@ -43,6 +43,7 @@ var App = {
     _.extend(this, Backbone.Events);
     this.listenTo(this.index, 'get_item_details', this.getItemDetails);
     this.listenTo(this.cart.view, 'go_to_checkout', this.goToCheckout);
+    this.listenTo(this.header, 'go_to_homepage', this.indexView);
     this.on('add_to_cart', this.cart.addItem.bind(this.cart));
     this.on('remove_from_cart', this.cart.removeItem.bind(this.cart));
   },

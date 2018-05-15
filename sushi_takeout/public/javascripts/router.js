@@ -1,7 +1,7 @@
 var appRouter = new (Backbone.Router.extend({
   routes: {
     'checkout' : App.goToCheckout,
-    'menu/:id': App.getItemDetails,
+    'menu/:id' : App.getItemDetails,
   },
   index: function() {
     App.indexView();
@@ -15,9 +15,15 @@ Backbone.history.start({
   pushState: true,
 });
 
-$(document).on('click', "a[href^='/']", function(e) {
+$(document).on('click', "a", function(e) {
   e.preventDefault();
-  var route = $(e.currentTarget).attr('href').replace('/', '').concat('/');
+  var route;
+
+  if ($(e.currentTarget).attr('href').match(/^\/$/)) {
+    route = '/menu/';
+  } else if ($(e.currentTarget).attr('href').match(/^\/.+/)) {
+    route = $(e.currentTarget).attr('href').replace('/', '').concat('/');
+  }
 
   appRouter.navigate(route, { trigger: false });
 });
