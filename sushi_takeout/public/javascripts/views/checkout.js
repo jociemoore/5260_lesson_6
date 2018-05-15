@@ -6,6 +6,7 @@ var CheckoutView = Backbone.View.extend({
     'click .fa-plus': 'addItem',
     'click .fa-minus': 'removeItem'
   },
+  template: App.templates.checkout,
   getModel(e) {
     var id = Number($(e.target).closest('tr').attr('data-id'));
     return this.collection.get(id);
@@ -18,7 +19,6 @@ var CheckoutView = Backbone.View.extend({
     e.preventDefault();
     App.trigger('remove_from_cart', this.getModel(e));
   },
-  template: App.templates.checkout,
   render: function() {
     this.$el.html(this.template({
       items: this.collection.toJSON(),

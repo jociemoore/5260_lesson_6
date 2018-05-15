@@ -35,7 +35,7 @@ var App = {
     });
   },
   goToCheckout: function() {
-    new CheckoutView({
+    this.checkout = new CheckoutView({
       collection: this.cart,
     });
   },

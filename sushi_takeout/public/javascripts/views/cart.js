@@ -1,7 +1,5 @@
 var CartView = Backbone.View.extend({
-  attributes: {
-    id: 'cart',
-  },
+  el: '#cart',
   template: App.templates.cart,
   events: {
     'click .checkout': 'goToCheckout'
@@ -15,7 +13,6 @@ var CartView = Backbone.View.extend({
       items: this.collection.toJSON(),
       total: this.collection.getTotal(),
     }));
-    this.$el.prependTo(App.$el.closest('main'));
   },
   initialize: function() {
     this.render();

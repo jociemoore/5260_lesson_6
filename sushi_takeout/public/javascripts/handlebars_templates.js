@@ -63,9 +63,7 @@ this["JST"]["item"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":func
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</h2></header><p class='price'>$"
     + alias4(((helper = (helper = helpers.price || (depth0 != null ? depth0.price : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"price","hash":{},"data":data}) : helper)))
-    + "</p><footer><a class='add_cart' href='/menu/"
-    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "'>Add to cart</a></footer></article>";
+    + "</p><footer><a class='add_cart' href='#'>Add to cart</a></footer></article>";
 },"useData":true});
 
 this["JST"]["itemDetails"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
