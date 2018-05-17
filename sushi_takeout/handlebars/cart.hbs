@@ -4,14 +4,14 @@
     <figure>
       <img src={{image}} alt='cart-item' />
     </figure>
-    <p>{{quantity}} x ${{price}}</p>
+    <p>{{quantity}} x ${{formatPrice price}}</p>
   </li>
   {{/each}}
 </ul>
 <section>
   <h3>Your</h3>
   <h3>shopping cart</h3>
-  <p class='total'>${{total}}</p>
+  <p class='total'>${{formatPrice total}}</p>
   <p></p>
   <footer>
     <a class='left empty_cart' href='#'>Empty cart</a>

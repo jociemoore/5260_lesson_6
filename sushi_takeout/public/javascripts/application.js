@@ -116,3 +116,7 @@ var App = {
     this.on('remove_from_cart', this.cart.removeItem.bind(this.cart));
   },
 }
+
+Handlebars.registerHelper('formatPrice', function(price) {
+  return Number(price).toFixed(2);
+});

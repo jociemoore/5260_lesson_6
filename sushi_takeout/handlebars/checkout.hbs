@@ -26,12 +26,12 @@
             <i class='fa fa-plus' aria-hidden='true'></i>
           </span>
         </td>
-        <td>${{price}}</td>
+        <td>${{formatPrice price}}</td>
       </tr>
       {{/each}}
     </tbody>
   </table>
-  <p>Total:<span class='total'>${{total}}</span></p>
+  <p>Total:<span class='total'>${{formatPrice total}}</span></p>
   <footer>
     <a href='/'>Cancel order</a>
     <form action='/' method='post'>

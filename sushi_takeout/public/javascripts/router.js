@@ -37,8 +37,6 @@ $(document).on('click', '.nav', function(e) {
   appRouter.navigate(route, { trigger: false });
 });
 
-
-
 $(document).on('click', 'li header', function(e) {
   e.preventDefault();
   var id = $(e.target).closest('li').attr('data-id');
