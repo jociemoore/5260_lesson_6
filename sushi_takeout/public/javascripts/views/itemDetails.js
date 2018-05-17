@@ -5,6 +5,20 @@ var ItemDetailsView = Backbone.View.extend({
   template: App.templates.itemDetails,
   events: {
     'click .add_cart': 'addItem',
+    'click .close': 'goToHomepage',
+    'click .nav': 'changeItem'
+  },
+  changeItem: function(e) {
+    e.preventDefault();
+    var $e = $(e.currentTarget);
+    var currentId = this.model.get('id');
+    var newId = App.getNextItemId($e, currentId);
+
+    App.trigger('change_item', newId);
+  },
+  goToHomepage: function(e) {
+    e.preventDefault();
+    App.trigger('go_to_homepage');
   },
   addItem: function(e) {
     e.preventDefault();

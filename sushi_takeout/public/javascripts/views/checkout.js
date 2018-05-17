@@ -5,12 +5,12 @@ var CheckoutView = Backbone.View.extend({
   events: {
     'click .fa-plus': 'addItem',
     'click .fa-minus': 'removeItem',
-    'click footer a': 'goToHomepage'
+    'click footer a': 'cancelOrder'
   },
   template: App.templates.checkout,
-  goToHomepage: function(e) {
+  cancelOrder: function(e) {
     e.preventDefault;
-    App.trigger('go_to_homepage');
+    App.trigger('cancel_order');
   },
   getModel(e) {
     var id = Number($(e.target).closest('tr').attr('data-id'));
