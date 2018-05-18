@@ -73,12 +73,13 @@ var App = {
     this.toggleCart();
     this.cart.resetStorage();
   },
-  getItemDetails: function(id) {
+  getItemDetails: function(id, getNext) {
+    var newItem = this.menu.get(id);
+
     this.close(this.currentView);
-    var item = this.menu.get(id);
     this.currentView = new ItemDetailsView({
-      model: item,
-    });
+      model: newItem,
+    }).render();
   },
   goToCheckout: function() {
     this.close(this.currentView);
@@ -108,7 +109,7 @@ var App = {
     _.extend(this, Backbone.Events);
     this.listenTo(this.index, 'get_item_details', this.getItemDetails);
     this.listenTo(this.cartView, 'go_to_checkout', this.goToCheckout);
-    this.on('change_item', this.getItemDetails);
+    // this.on('change_item', this.getItemDetails);
     this.on('go_to_homepage', this.indexView);
     this.on('cancel_order', this.cancelOrder);
     this.on('empty_cart', this.emptyCart);

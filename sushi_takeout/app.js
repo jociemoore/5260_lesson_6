@@ -17,8 +17,10 @@ app.use(stylus.middleware({
   src: path.join(__dirname, 'public'),
   compile: function(str, p) {
     return stylus(str).set('filename', p).use(nib());
-  }
+  },
 }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

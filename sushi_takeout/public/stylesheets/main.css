@@ -251,6 +251,7 @@ main ul li {
   top: 50%;
   margin: -100px 0 0 0;
   font-size: 0;
+  overflow: hidden;
 }
 #item_details > div > * {
   box-sizing: border-box;
