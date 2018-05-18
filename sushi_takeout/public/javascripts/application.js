@@ -23,10 +23,6 @@ var App = {
 
     return currentId;
   },
-  close: function(view) {
-    view.undelegateEvents();
-    view.remove();
-  },
   toggleCart: function() {
     $(this.cartView.$el).slideToggle();
   },
@@ -47,13 +43,11 @@ var App = {
     this.menu.each(this.renderItemView);
   },
   renderHeader: function() {
-    if (this.header) { this.close(this.header); }
     this.header = new HeaderView({
       collection: this.cart,
     });
   },
   createCart: function() {
-    if (this.cartView) { this.close(this.cartView); }
     this.cart = new Cart();
     this.cartView = new CartView({
       collection: this.cart,
@@ -73,25 +67,25 @@ var App = {
     this.toggleCart();
     this.cart.resetStorage();
   },
-  getItemDetails: function(id, getNext) {
+  getItemDetails: function(id) {
     var newItem = this.menu.get(id);
 
-    this.close(this.currentView);
-    this.currentView = new ItemDetailsView({
+    this.currentView = (new ItemDetailsView({
       model: newItem,
-    }).render();
+    })).render();
+
+    appRouter.navigate('menu/' + id, { trigger: false });
   },
   goToCheckout: function() {
-    this.close(this.currentView);
     this.hideCart();
     this.checkout = new CheckoutView({
       collection: this.cart,
     });
     this.currentView = this.checkout;
+
+    appRouter.navigate('checkout', { trigger: false });
   },
   indexView: function() {
-    if (this.currentView) { this.close(this.currentView); }
-
     this.index = new IndexView();
     this.currentView = this.index;
     this.renderMenu();
@@ -104,6 +98,8 @@ var App = {
     } else {
       this.showCart();
     }
+
+    appRouter.navigate('menu', { trigger: true});
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);

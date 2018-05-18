@@ -1,5 +1,5 @@
 var HeaderView = Backbone.View.extend({
-  tagName: 'header',
+  el: 'body > header',
   template: App.templates.header,
   events: {
     'click .logo' : 'renderHomepage',
@@ -13,7 +13,6 @@ var HeaderView = Backbone.View.extend({
     this.$el.html(this.template({
       quantity: this.collection.getQuantity() || 0,
     }));
-    App.$el.closest('body').prepend(this.$el);
   },
   initialize: function() {
     this.render();

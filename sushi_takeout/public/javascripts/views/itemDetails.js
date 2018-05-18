@@ -20,6 +20,8 @@ var ItemDetailsView = Backbone.View.extend({
     new ItemDetailsView({
       model: newItem
     }).render($currentItem, direction);
+
+    appRouter.navigate('menu/' + newId, { trigger: false });
   },
   goToHomepage: function(e) {
     e.preventDefault();
