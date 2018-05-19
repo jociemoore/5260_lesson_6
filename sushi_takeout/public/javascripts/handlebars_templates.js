@@ -19,7 +19,7 @@ this["JST"]["cart"] = Handlebars.template({"1":function(container,depth0,helpers
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</ul><section><h3>Your</h3><h3>shopping cart</h3><p class='total'>$"
     + container.escapeExpression((helpers.formatPrice || (depth0 && depth0.formatPrice) || helpers.helperMissing).call(alias1,(depth0 != null ? depth0.total : depth0),{"name":"formatPrice","hash":{},"data":data}))
-    + "</p><p></p><footer><a class='left empty_cart' href='#'>Empty cart</a><a class='right checkout' href='/checkout'>Checkout<a></footer></section>";
+    + "</p><p></p><footer><a class='left empty_cart' href='#'>Empty cart</a><a class='right checkout' href='/checkout'>Checkout</a></footer></section>";
 },"useData":true});
 
 this["JST"]["checkout"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {

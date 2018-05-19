@@ -24,22 +24,21 @@ var App = {
     return currentId;
   },
   toggleCart: function() {
-    $(this.cartView.$el).slideToggle();
+    $(this.cartView.$el).stop(true).slideToggle();
   },
   hideCart: function() {
     $(this.cartView.$el).css('display', 'none');
-    this.cartView.undelegateEvents(); 
   },
   showCart: function() {
-    this.cartView.delegateEvents(); 
     $(this.cartView.$el).css('display', 'block');
   },
   renderItemView: function(menuItem) {
-    new ItemView({
+    return new ItemView({
       model: menuItem,
     });
   },
   renderMenu: function() {
+    this.items = [];
     this.menu.each(this.renderItemView);
   },
   renderHeader: function() {
@@ -70,14 +69,22 @@ var App = {
   getItemDetails: function(id) {
     var newItem = this.menu.get(id);
 
-    this.currentView = (new ItemDetailsView({
+    this.close();
+    this.currentView = new ItemDetailsView({
       model: newItem,
-    })).render();
+    })
+
+    this.currentView.render();
 
     appRouter.navigate('menu/' + id, { trigger: false });
   },
+  close: function() {
+    this.currentView.undelegateEvents();
+    this.currentView.remove();
+  },
   goToCheckout: function() {
     this.hideCart();
+    this.close();
     this.checkout = new CheckoutView({
       collection: this.cart,
     });
@@ -86,10 +93,14 @@ var App = {
     appRouter.navigate('checkout', { trigger: false });
   },
   indexView: function() {
+    if (this.currentView) { 
+      this.close();
+      this.unbind(); 
+    }
     this.index = new IndexView();
     this.currentView = this.index;
     this.renderMenu();
-    this.createCart();
+    if (!this.cart) { this.createCart(); }
     this.renderHeader();
     this.bindEvents();
 
@@ -99,13 +110,12 @@ var App = {
       this.showCart();
     }
 
-    appRouter.navigate('menu', { trigger: true});
+    appRouter.navigate('menu', { trigger: false });
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
     this.listenTo(this.index, 'get_item_details', this.getItemDetails);
     this.listenTo(this.cartView, 'go_to_checkout', this.goToCheckout);
-    // this.on('change_item', this.getItemDetails);
     this.on('go_to_homepage', this.indexView);
     this.on('cancel_order', this.cancelOrder);
     this.on('empty_cart', this.emptyCart);

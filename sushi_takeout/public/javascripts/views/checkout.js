@@ -5,7 +5,8 @@ var CheckoutView = Backbone.View.extend({
   events: {
     'click .fa-plus': 'addItem',
     'click .fa-minus': 'removeItem',
-    'click footer a': 'cancelOrder'
+    'click footer a': 'cancelOrder',
+    "click input[type='submit']": 'cancelOrder'
   },
   template: App.templates.checkout,
   cancelOrder: function(e) {
