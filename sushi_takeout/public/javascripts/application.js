@@ -1,6 +1,10 @@
 var App = {
   templates: JST,
   $el: $('#content'),
+  close: function() {
+    this.currentView.undelegateEvents();
+    this.currentView.remove();
+  },
   atMenuEnd: function(id) {
     return id === this.menu.length;
   },
@@ -23,48 +27,19 @@ var App = {
 
     return currentId;
   },
-  toggleCart: function() {
-    $(this.cartView.$el).stop(true).slideToggle();
-  },
-  hideCart: function() {
-    $(this.cartView.$el).css('display', 'none');
-  },
-  showCart: function() {
-    $(this.cartView.$el).css('display', 'block');
-  },
-  renderItemView: function(menuItem) {
-    return new ItemView({
-      model: menuItem,
-    });
-  },
-  renderMenu: function() {
-    this.items = [];
-    this.menu.each(this.renderItemView);
-  },
-  renderHeader: function() {
-    this.header = new HeaderView({
-      collection: this.cart,
-    });
-  },
-  createCart: function() {
-    this.cart = new Cart();
-    this.cartView = new CartView({
-      collection: this.cart,
-    });
-  },
   addToCart: function(item) {
     if (this.cart.length === 0) {
-      this.toggleCart();
+      $(this.cartView.$el).slideToggle();
     }
     this.cart.addItem(item);
+  },
+  emptyCart: function() {
+    $(this.cartView.$el).slideToggle();
+    this.cart.resetStorage();
   },
   cancelOrder: function() {
     this.cart.resetStorage();
     this.indexView();
-  },
-  emptyCart: function() {
-    this.toggleCart();
-    this.cart.resetStorage();
   },
   getItemDetails: function(id) {
     var newItem = this.menu.get(id);
@@ -73,50 +48,51 @@ var App = {
     this.currentView = new ItemDetailsView({
       model: newItem,
     })
-
     this.currentView.render();
-
     appRouter.navigate('menu/' + id, { trigger: false });
   },
-  close: function() {
-    this.currentView.undelegateEvents();
-    this.currentView.remove();
-  },
   goToCheckout: function() {
-    this.hideCart();
+    $(this.cartView.$el).hide();
     this.close();
-    this.checkout = new CheckoutView({
+    this.currentView  = new CheckoutView({
       collection: this.cart,
     });
-    this.currentView = this.checkout;
-
     appRouter.navigate('checkout', { trigger: false });
   },
-  indexView: function() {
+  renderHeader: function() {
+    new HeaderView({
+      collection: this.cart,
+    });
+  },
+  renderCart: function() {
+    if (!this.cart) {
+      this.cart = new Cart();
+      this.cartView = new CartView({
+        collection: this.cart,
+      });
+    }
+    this.cart.length === 0 ? $(this.cartView.$el).hide() : $(this.cartView.$el).show();
+  },
+  index: function() {
     if (this.currentView) { 
       this.close();
       this.unbind(); 
     }
-    this.index = new IndexView();
-    this.currentView = this.index;
-    this.renderMenu();
-    if (!this.cart) { this.createCart(); }
+
+    this.currentView = new MenuView({
+      collection: this.menu
+    });
+
+    this.renderCart();
     this.renderHeader();
     this.bindEvents();
-
-    if (this.cart.length === 0) {
-      this.hideCart();
-    } else {
-      this.showCart();
-    }
-
     appRouter.navigate('menu', { trigger: false });
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
-    this.listenTo(this.index, 'get_item_details', this.getItemDetails);
-    this.listenTo(this.cartView, 'go_to_checkout', this.goToCheckout);
-    this.on('go_to_homepage', this.indexView);
+    this.on('go_to_checkout', this.goToCheckout);
+    this.on('get_item_details', this.getItemDetails);
+    this.on('go_to_homepage', this.index);
     this.on('cancel_order', this.cancelOrder);
     this.on('empty_cart', this.emptyCart);
     this.on('add_to_cart', this.addToCart);

@@ -18,7 +18,7 @@ html
     +javascript_include_tag('application')
     +javascript_include_tag('models/item')
     +javascript_include_tag('collections/menu', 'collections/cart')
-    +javascript_include_tag('views/item', 'views/index', 'views/itemDetails', 'views/cart', 'views/header', 'views/checkout')
+    +javascript_include_tag('views/item', 'views/menu', 'views/itemDetails', 'views/cart', 'views/header', 'views/checkout')
     script(type='text/javascript').
       App.menu = new Menu(!{JSON.stringify(menu)});
     +javascript_include_tag('router')

@@ -13,7 +13,6 @@ var ItemView = Backbone.View.extend({
 
     this.$el.attr('data-id', id);
     this.$el.html(this.template(this.model.toJSON()));
-    App.$el.find('ul').append(this.$el);
   },
   initialize: function() {
     this.render();

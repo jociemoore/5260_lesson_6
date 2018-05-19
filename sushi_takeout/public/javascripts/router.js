@@ -1,11 +1,12 @@
 var appRouter = new (Backbone.Router.extend({
   routes: {
-    'checkout' : 'checkoutView',
-    'menu/:id' : 'itemView',
-    'menu': 'menuView',
+    'checkout': 'checkoutView',
+    'menu/:id': 'itemView',
+    'menu': 'indexView',
   },
-  menuView: function() {
-    App.indexView();
+  indexView: function() {
+    this.navigate('/menu');
+    App.index();
   },
   itemView: function(id) {
     App.getItemDetails(id);
@@ -13,12 +14,8 @@ var appRouter = new (Backbone.Router.extend({
   checkoutView: function() {
     App.goToCheckout();
   },
-  index: function() {
-    this.navigate('/menu');
-    App.indexView();
-  },
   initialize: function() {
-    this.route(/^\/?$/, this.index);
+    this.route(/^\/?$/, this.indexView);
   }
 }))();
 

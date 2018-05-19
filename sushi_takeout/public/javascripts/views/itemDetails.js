@@ -8,6 +8,14 @@ var ItemDetailsView = Backbone.View.extend({
     'click .close': 'goToHomepage',
     'click .nav': 'changeItem'
   },
+  addItem: function(e) {
+    e.preventDefault();
+    App.trigger('add_to_cart', this.model);
+  },
+  goToHomepage: function(e) {
+    e.preventDefault();
+    App.trigger('go_to_homepage');
+  },
   changeItem: function(e) {
     e.preventDefault();
     var $e = $(e.currentTarget);
@@ -22,14 +30,6 @@ var ItemDetailsView = Backbone.View.extend({
     }).render($currentItem, direction);
 
     appRouter.navigate('menu/' + newId, { trigger: false });
-  },
-  goToHomepage: function(e) {
-    e.preventDefault();
-    App.trigger('go_to_homepage');
-  },
-  addItem: function(e) {
-    e.preventDefault();
-    App.trigger('add_to_cart', this.model);
   },
   animateItems: function($previousItem, direction) {
     var $currentItem = this.$el.children('div');
